@@ -19,11 +19,7 @@ export default function StateButton({ bitPosition }) {
         return ((num >> n) & 1) === 1;
     };
 
-    // useEffect(() => {
-    //     setActive(isNthBitSet(binaryState, bitPosition))
-    //     console.log('active is now ' + active)
-    // }, [binaryState, bitPosition]);
-
+    // TODO: this polls for every button even though the data.lightState is the same for all buttons
     useEffect(() => {
         const interval = setInterval(async () => {
             const response = await fetch('/api/state', {method: 'GET'});
