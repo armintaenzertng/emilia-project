@@ -1,7 +1,7 @@
 import mqtt from 'mqtt';
 
 
-const client = mqtt.connect('http://localhost:1883'); // TODO: Replace with the server's MQTT broker's URL
+const client = mqtt.connect('mqtt://emilia:emilialicht@mqtt.holunderheiss.org:1883/stateTopic');
 
 client.on('connect', () => {
     console.log('Connected to MQTT broker');
