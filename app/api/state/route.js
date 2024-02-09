@@ -8,7 +8,6 @@ client.on('connect', () => {
 });
 
 
-let activeState = false;
 let binaryState = 0;
 
 export async function POST(request) {
@@ -21,7 +20,6 @@ export async function POST(request) {
     
     console.log("binaryState is now " + binaryState + ". In binary this is " + binaryStateString)
 
-    activeState = !activeState;
     client.publish('stateTopic', binaryStateString);
     
     return Response.json({lightState: binaryState})

@@ -27,9 +27,6 @@ export default function Home() {
             <div>
                 <StateButton bitPosition={6}/>
             </div>
-            {/*<div>*/}
-            {/*    <StateButton onClick={() => toggleActive(6)} active={active}/>*/}
-            {/*</div>*/}
         </>
     );
 }

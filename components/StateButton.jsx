@@ -15,8 +15,8 @@ export default function StateButton({ bitPosition }) {
         cursor: 'pointer',
     };
 
-    const isNthBitSet = (num, n) => {
-        return ((num >> n) & 1) === 1;
+    const isNthBitSet = (binaryState, n) => {
+        return ((binaryState >> n) & 1) === 1;
     };
 
     // TODO: this polls for every button even though the data.lightState is the same for all buttons
