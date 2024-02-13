@@ -2,6 +2,7 @@
 
 import StateButton from '../components/StateButton';
 import {useEffect, useState} from "react";
+import LivestreamComponent from "../components/LiveStreamComponent";
 
 export default function Home() {
     
@@ -20,6 +21,9 @@ export default function Home() {
     
     return (
         <>
+            <div>
+                <LivestreamComponent livestreamUrl={''}/>  {/* TODO: insert embed link for livestream here*/}
+            </div>    
             <div>
                 <StateButton bitPosition={0} binaryState={binaryState}/>
             </div>
