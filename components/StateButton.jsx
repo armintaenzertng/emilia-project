@@ -1,22 +1,19 @@
 import {useEffect, useState} from "react";
-
+import Switch from '@mui/material/Switch';
+import theme from "tailwindcss/defaultTheme";
+import {gray} from "next/dist/lib/picocolors";
 
 export default function StateButton({bitPosition, binaryState}) {
 
     const [active, setActive] = useState(false);
 
     const buttonStyle = {
-        backgroundColor: active ? 'green' : 'red',
-        color: 'white',
-        padding: '10px 20px',
-        border: 'none',
-        borderRadius: '5px',
-        cursor: 'pointer',
+        color: active ? 'lightGreen' : 'darkViolet',
     };
 
     useEffect(() => {
         console.log("frontend: binaryState for button " + bitPosition + " is " + binaryState)
-        
+
         setActive(isNthBitSet(binaryState, bitPosition));
     }, [binaryState])
 
@@ -35,8 +32,8 @@ export default function StateButton({bitPosition, binaryState}) {
     };
 
     return (
-        <button style={buttonStyle} onClick={() => sendToggleCommand(bitPosition)}>
+        <Switch style={buttonStyle} disableRipple onClick={() => sendToggleCommand(bitPosition)}>
             {active ? 'Active' : 'Inactive'}
-        </button>
+        </Switch>
     );
 }
