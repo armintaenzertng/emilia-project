@@ -4,6 +4,9 @@ import StateButton from '../components/StateButton';
 import {useEffect, useState} from "react";
 import LivestreamComponent from "../components/LiveStreamComponent";
 
+const statePollingInterval = 500;  // poll every x milliseconds
+const userCountPollingInterval = 5000;  // keep this number in sync with the userCount GET method
+
 export default function Home() {
 
     // This polls for the current state of the lamps at regular intervals. The state is shared by all lamps, their bitPosition determines if they are on or off.
@@ -13,9 +16,23 @@ export default function Home() {
             const response = await fetch('/api/state', {method: 'GET'});
             const data = await response.json();
             setBinaryState(data.lightState)
-        }, 500); // Poll regularly (value in milliseconds)
+        }, statePollingInterval);
 
         return () => clearInterval(interval);
+    }, []);
+
+    // This polls for the current user count (people that have the site open) by tracking these polls
+    const [userCount, setUserCount] = useState(0)
+    useEffect(() => {
+        const fetchUserCount = async () => {
+            const response = await fetch('api/userCount', {method: 'GET'});
+            const data = await response.json();
+            setUserCount(data.userCount)
+        }
+
+        const interval = setInterval(fetchUserCount, userCountPollingInterval);
+
+        return () => clearInterval(interval)
     }, []);
 
 
@@ -48,8 +65,12 @@ export default function Home() {
                 <div className="p-2 m-1">
                     <StateButton bitPosition={6} binaryState={binaryState}/>
                 </div>
+                <div className="p-2 m-1">
+                    Number of active users: {userCount}
+                </div>
                 <Footer/>
             </div>
+
         </>
     );
 }
@@ -57,7 +78,7 @@ export default function Home() {
 function Header() {
     return (
         <>
-            <h1>Illuminated Nothing</h1>
+        <h1>Illuminated Nothing</h1>
             <p className="p-2 m-2">24h Performance by EMILIA VOGT</p>
             <p>2.3. 5pm - 3.3. 5pm</p>
         </>
