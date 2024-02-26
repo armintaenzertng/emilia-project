@@ -1,15 +1,10 @@
 import {useEffect, useState} from "react";
 import Switch from '@mui/material/Switch';
-import theme from "tailwindcss/defaultTheme";
-import {gray} from "next/dist/lib/picocolors";
+import {createTheme, ThemeProvider} from "@mui/material";
 
 export default function StateButton({bitPosition, binaryState}) {
 
     const [active, setActive] = useState(false);
-
-    const buttonStyle = {
-        color: active ? 'lightGreen' : 'darkViolet',
-    };
 
     useEffect(() => {
         console.log("frontend: binaryState for button " + bitPosition + " is " + binaryState)
@@ -31,9 +26,41 @@ export default function StateButton({bitPosition, binaryState}) {
         });
     };
 
+    const theme = createTheme({
+        components: {
+            MuiSwitch: {
+                styleOverrides: {
+                    switchBase: {
+                        // Controls default (unchecked) color for the thumb
+                        color: "white"
+                    },
+                    colorPrimary: {
+                        "&.Mui-checked": {
+                            // Controls checked color for the thumb
+                            color: "#fff"
+                        }
+                    },
+                    track: {
+                        // Controls default (unchecked) color for the track
+                        opacity: 1,
+                        backgroundColor: "darkViolet",
+                        ".Mui-checked.Mui-checked + &": {
+                            // Controls checked color for the track
+                            opacity: 1,
+                            backgroundColor: "#aaf501"
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+
     return (
-        <Switch style={buttonStyle} disableRipple onClick={() => sendToggleCommand(bitPosition)}>
+        <ThemeProvider theme={theme}>
+        <Switch disableRipple onClick={() => sendToggleCommand(bitPosition)}>
             {active ? 'Active' : 'Inactive'}
         </Switch>
+        </ThemeProvider>
     );
 }

@@ -10,7 +10,8 @@ export default function LivestreamComponent (livestreamUrl) {
     return (
         <div>
             {!showLivestream && (
-                <button onClick={handleButtonClick}>Watch Livestream</button>
+                <button className="text-white font-bold py-2 px-4 border-lime-400 border rounded"
+                        onClick={handleButtonClick}>Watch Livestream</button>
             )}
             {showLivestream && (
                 <iframe

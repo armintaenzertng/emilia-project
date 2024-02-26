@@ -21,31 +21,31 @@ export default function Home() {
 
     return (
         <>
-            <div className={'justify-center mt-3 mx-px-[15%]'}>
+            <div className={'justify-center'}>
                 <Header/>
                 <p className="p-2 m-2">Control the light in the room by toggling the switches on and off.</p>
                 <div className="p-2 m-2">
                     <LivestreamComponent livestreamUrl={''}/> {/* TODO: insert embed link for livestream here*/}
                 </div>
-                <div className="p-2 m-2">
+                <div className="p-2 m-1">
                     <StateButton bitPosition={0} binaryState={binaryState}/>
                 </div>
-                <div className="flex justify-center p-2 m-2">
+                <div className="p-2 m-1">
                     <StateButton bitPosition={1} binaryState={binaryState}/>
                 </div>
-                <div className="p-2 m-2">
+                <div className="p-2 m-1">
                     <StateButton bitPosition={2} binaryState={binaryState}/>
                 </div>
-                <div>
+                <div className="p-2 m-1">
                     <StateButton bitPosition={3} binaryState={binaryState}/>
                 </div>
-                <div>
+                <div className="p-2 m-1">
                     <StateButton bitPosition={4} binaryState={binaryState}/>
                 </div>
-                <div>
+                <div className="p-2 m-1">
                     <StateButton bitPosition={5} binaryState={binaryState}/>
                 </div>
-                <div>
+                <div className="p-2 m-1">
                     <StateButton bitPosition={6} binaryState={binaryState}/>
                 </div>
                 <Footer/>
@@ -57,7 +57,7 @@ export default function Home() {
 function Header() {
     return (
         <>
-            <h1 className="text-xl font-bold uppercase p-2 m-3">Illuminated Nothing</h1>
+            <h1>Illuminated Nothing</h1>
             <p className="p-2 m-2">24h Performance by EMILIA VOGT</p>
             <p>2.3. 5pm - 3.3. 5pm</p>
         </>
