@@ -19,7 +19,6 @@
 body {
     text-align: center;
     letter-spacing: 0.1em;
-    margin: 1em 20% 1em 20%;
     font-family: --font-archivo, sans-serif;
     color: rgb(var(--foreground-rgb));
     background: linear-gradient(
@@ -30,13 +29,14 @@ body {
 }
 
 iframe {
+    width: fit-content;
     margin: auto;
+    height: fit-content;
 }
 
 h1 {
     font-stretch: expanded;
     font-weight: 600;
-    font-size: 60px;
     text-transform: uppercase;
 }
 

@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${archivo.variable}`}>{children}</body>
+      <body className={`${archivo.variable} mt-2 m-auto w-4/5`}>{children}</body>
     </html>
   )
 }
