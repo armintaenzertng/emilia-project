@@ -1,22 +1,14 @@
 import {useEffect, useState} from "react";
-
+import Switch from '@mui/material/Switch';
+import {createTheme, ThemeProvider} from "@mui/material";
 
 export default function StateButton({bitPosition, binaryState}) {
 
     const [active, setActive] = useState(false);
 
-    const buttonStyle = {
-        backgroundColor: active ? 'green' : 'red',
-        color: 'white',
-        padding: '10px 20px',
-        border: 'none',
-        borderRadius: '5px',
-        cursor: 'pointer',
-    };
-
     useEffect(() => {
         console.log("frontend: binaryState for button " + bitPosition + " is " + binaryState)
-        
+
         setActive(isNthBitSet(binaryState, bitPosition));
     }, [binaryState])
 
@@ -34,9 +26,41 @@ export default function StateButton({bitPosition, binaryState}) {
         });
     };
 
+    const theme = createTheme({
+        components: {
+            MuiSwitch: {
+                styleOverrides: {
+                    switchBase: {
+                        // Controls default (unchecked) color for the thumb
+                        color: "white"
+                    },
+                    colorPrimary: {
+                        "&.Mui-checked": {
+                            // Controls checked color for the thumb
+                            color: "#fff"
+                        }
+                    },
+                    track: {
+                        // Controls default (unchecked) color for the track
+                        opacity: 1,
+                        backgroundColor: "darkViolet",
+                        ".Mui-checked.Mui-checked + &": {
+                            // Controls checked color for the track
+                            opacity: 1,
+                            backgroundColor: "#aaf501"
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+
     return (
-        <button style={buttonStyle} onClick={() => sendToggleCommand(bitPosition)}>
+        <ThemeProvider theme={theme}>
+        <Switch disableRipple onClick={() => sendToggleCommand(bitPosition)}>
             {active ? 'Active' : 'Inactive'}
-        </button>
+        </Switch>
+        </ThemeProvider>
     );
 }
