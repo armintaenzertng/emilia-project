@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-export default function LivestreamComponent (livestreamUrl) {
+export default function LivestreamComponent ({livestreamUrl}) {
     const [showLivestream, setShowLivestream] = useState(false);
 
     const handleButtonClick = () => {

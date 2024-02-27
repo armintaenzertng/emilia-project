@@ -6,6 +6,7 @@ import LivestreamComponent from "../components/LiveStreamComponent";
 
 const statePollingInterval = 500;  // poll every x milliseconds
 const userCountPollingInterval = 5000;  // keep this number in sync with the userCount GET method
+const livestreamEmbedLink = "https://www.dorftv.at/embed/ovenmedia/95"
 
 export default function Home() {
 
@@ -42,7 +43,7 @@ export default function Home() {
                 <Header/>
                 <p className="p-2 m-2">Control the light in the room by toggling the switches on and off.</p>
                 <div className="p-2 m-2">
-                    <LivestreamComponent livestreamUrl={''}/> {/* TODO: insert embed link for livestream here*/}
+                    <LivestreamComponent livestreamUrl={livestreamEmbedLink}/>
                 </div>
                 <div className="p-2 m-1">
                     <StateButton bitPosition={0} binaryState={binaryState}/>
@@ -78,7 +79,7 @@ export default function Home() {
 function Header() {
     return (
         <>
-        <h1>Illuminated Nothing</h1>
+            <h1>Illuminated Nothing</h1>
             <p className="p-2 m-2">24h Performance by EMILIA VOGT</p>
             <p>2.3. 5pm - 3.3. 5pm</p>
         </>
