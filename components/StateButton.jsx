@@ -58,7 +58,10 @@ export default function StateButton({bitPosition, binaryState}) {
 
     return (
         <ThemeProvider theme={theme}>
-        <Switch disableRipple onClick={() => sendToggleCommand(bitPosition)}>
+        <Switch 
+            disableRipple
+            checked={active}
+            onClick={() => sendToggleCommand(bitPosition)}>
             {active ? 'Active' : 'Inactive'}
         </Switch>
         </ThemeProvider>
