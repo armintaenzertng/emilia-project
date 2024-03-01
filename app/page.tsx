@@ -80,7 +80,7 @@ function Header() {
     return (
         <>
             <h1 className="text-xl md:text-2xl">Illuminated Nothing</h1>
-            <p className="p-2 m-2">24h Performance by EMILIA VOGT</p>
+            <p className="p-2 m-2">24h Performance by<br/> EMILIA VOGT</p>
             <p>2.3. 5pm - 3.3. 5pm</p>
         </>
     );
