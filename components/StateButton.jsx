@@ -7,7 +7,7 @@ export default function StateButton({bitPosition, binaryState}) {
     const [active, setActive] = useState(false);
 
     useEffect(() => {
-        console.log("frontend: binaryState for button " + bitPosition + " is " + binaryState)
+        // console.log("frontend: binaryState for button " + bitPosition + " is " + binaryState)
 
         setActive(isNthBitSet(binaryState, bitPosition));
     }, [binaryState])
