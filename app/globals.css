@@ -12,10 +12,20 @@ body {
     background-color: black;
 }
 
-iframe {
-    width: fit-content;;
-    margin: auto;
-    height: fit-content;
+.aspect-ratio-wrapper {
+    position: relative;
+    width: 75%;
+    padding-top: 42.1875%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.aspect-ratio-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 h1 {

@@ -14,13 +14,13 @@ export default function LivestreamComponent ({livestreamUrl}) {
                         onClick={handleButtonClick}>Watch Livestream</button>
             )}
             {showLivestream && (
-                <iframe
-                    src={livestreamUrl}
-                    width="560"
-                    height="315"
-                    frameBorder="0"
-                    allowFullScreen
-                ></iframe>
+                <div className="aspect-ratio-wrapper">
+                    <iframe
+                        src={livestreamUrl}
+                        scrolling={"no"}
+                        allowFullScreen
+                    ></iframe>
+                </div>
             )}
         </div>
     );
