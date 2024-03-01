@@ -23,18 +23,18 @@ export default function Home() {
     }, []);
 
     // This polls for the current user count (people that have the site open) by tracking these polls
-    const [userCount, setUserCount] = useState(0)
-    useEffect(() => {
-        const fetchUserCount = async () => {
-            const response = await fetch('api/userCount', {method: 'GET'});
-            const data = await response.json();
-            setUserCount(data.userCount)
-        }
-
-        const interval = setInterval(fetchUserCount, userCountPollingInterval);
-
-        return () => clearInterval(interval)
-    }, []);
+    // const [userCount, setUserCount] = useState(0)
+    // useEffect(() => {
+    //     const fetchUserCount = async () => {
+    //         const response = await fetch('api/userCount', {method: 'GET'});
+    //         const data = await response.json();
+    //         setUserCount(data.userCount)
+    //     }
+    //
+    //     const interval = setInterval(fetchUserCount, userCountPollingInterval);
+    //
+    //     return () => clearInterval(interval)
+    // }, []);
 
 
     return (
@@ -66,9 +66,9 @@ export default function Home() {
                 <div className="p-2 m-1">
                     <StateButton bitPosition={6} binaryState={binaryState}/>
                 </div>
-                <div className="p-2 m-1">
-                    Number of active users: {userCount}
-                </div>
+                {/*<div className="p-2 m-1">*/}
+                {/*    Number of active users: {userCount}*/}
+                {/*</div>*/}
                 <Footer/>
             </div>
 
