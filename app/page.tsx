@@ -6,7 +6,7 @@ import LivestreamComponent from "../components/LiveStreamComponent";
 
 const statePollingInterval = 500;  // poll every x milliseconds
 const userCountPollingInterval = 5000;  // keep this number in sync with the userCount GET method
-const livestreamEmbedLink = "https://www.youtube.com/embed/9lH-PHNHr2Q"
+const livestreamEmbedLink = "https://www.youtube.com/live/vHe2dCtqHPk"
 
 export default function Home() {
 
